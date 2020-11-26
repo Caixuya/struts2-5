@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  <constant name="struts.ui.theme" value="simple"/>
+    <package name="default" namespace="/" extends="struts-default">
+		<!-- 用户登录 -->
+        <action name="login" class="action.Login" method="login">
+        	<result name="ok" type="redirectAction">house_show</result>
+        	<result name="error">/login.jsp</result>
+        </action> 
+        <action name="house_show" class="action.HouseAction" method="show">
+        	<result name="ok">/manage.jsp</result>
+        </action>   
+        <action name="house_add" class="action.HouseAction" method="add">
+        	<result name="ok">/add.jsp</result>
+        	<result name="error">/add.jsp</result>
+        </action>
+        <!--房屋搜索-->
+        <action name="house_search" class="action.HouseAction" method="search">
+        	<result name="ok">/manage.jsp</result>
+        </action>
+        <!-- 或  <action name="house_search" class="action.HouseAction" method="search">
+        	<result name="ok" type="redirectAction">house_show</result>
+        </action> -->
+ 		
+    </package>
+    
+    <!--package的namespace 和action的name-->
+     <package name="p1" namespace="/book" extends="struts-default">
+       <!--当访问不存在的uri时跳转到哪个页面-->
+        <default-action-ref name="defaultAction"></default-action-ref>
+        <action name="defaultAction">
+        	<result>/error.jsp</result>
+        </action>
+        
+        <action name="show" class="action.TestFun" method="show">        	
+        	<result name="ok">/test.jsp</result>        
+        </action>    
+        <action name="edit" class="action.TestFun" method="edit">        	
+        	<result name="ok">/test.jsp</result>        
+        </action>    
+        
+    </package>
+    
+     <!--通配符-->
+      <package name="p2" namespace="/" extends="struts-default">
+		<!-- 用户登录 -->
+        <action name="book_*" class="action.TestFun" method="{1}">        	
+        	<result name="ok">/test.jsp</result>        
+        </action>            
+    </package>
+       
+</struts>
