@@ -7,14 +7,14 @@
 <hibernate-configuration>
 
 <session-factory>
-	<property name="connection.username">scott</property>
+	<property name="connection.username">***</property>
 	<!--用户名-->
-	<property name="connection.password">xieyihui</property><!--密码-->
+	<property name="connection.password">***</property><!--密码-->
 	<property name="connection.driver_class">
 		oracle.jdbc.driver.OracleDriver
 	</property><!--数据库驱动程序名-->
 	<property name="connection.url">
-		jdbc:oracle:thin:@localhost:1521:cxydb
+		jdbc:oracle:thin:@localhost:1521:***
 	</property><!--数据库实例url-->
 	<property name="dialect">
 		org.hibernate.dialect.OracleDialect
